@@ -21,7 +21,7 @@ auto_tracking(_video).py -- 原地追踪程序(行车视频)
 # 快速使用
 ```python
 # 导入需要的包
-from model import model
+from model import pm_model
 from devices import car_devices
 from preprocess import preprocess_det
 
