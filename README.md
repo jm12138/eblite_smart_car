@@ -1,5 +1,5 @@
 # eblite_smart_car
-The edgeboard code on python api for the smart car.
+The edgeboard lite code on python api for the smart car.
 
 # 目录结构
 ## 库
