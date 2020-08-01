@@ -46,7 +46,7 @@ print(result)
 # 如何部署自己的模型
 1. 使用paddlepaddle训练自己的模型
 
-2. 导出推理模型（参数合并模型，即只有model和params两个文件的格式）
+2. 导出推理模型
 
 3. 使用model模块中pm_model或cxx_model这两个api加载模型
 
