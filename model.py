@@ -4,20 +4,21 @@ import paddlelite as lite
 
 __all__ = ['cxx_model', 'pm_model']
 
-class cxx_model():
-	def __init__(self, model_flie, param_file, data_shape):
+class base_model():
+	def __init__(self, data_shape, thread_num=1, model_dir=None, model_flie=None, param_file=None):
 		'''
 		加载模型 初始化输入张量
-		参数：模型文件、模型参数文件、数据形状
+		参数：模型文件、模型参数文件、数据形状、线程数、模型目录
 		返回：无
 		'''
-		self.predictor = self.load_model(model_flie, param_file)
+		self.predictor = self.load_model(model_flie, param_file, thread_num, model_dir)
 		self.tensor = self.data_feed(data_shape)
 
-	def load_model(self, model_flie, param_file):
+class cxx_model(base_model):
+	def load_model(self, model_flie, param_file, thread_num, model_dir):
 		'''
 		加载CxxCongig模型
-		参数：模型文件、模型参数文件
+		参数：模型文件、模型参数文件、线程数、模型目录
 		返回：模型预测器
 		'''
 		valid_places =   (
@@ -26,8 +27,11 @@ class cxx_model():
 			lite.Place(lite.TargetType.kARM, lite.PrecisionType.kFloat)
 		)
 		config = lite.CxxConfig()
-		config.set_model_file(model_flie)
-		config.set_param_file(param_file)
+		if model_dir:
+			config.set_model_dir(model_dir)
+		else:
+			config.set_model_file(model_flie)
+			config.set_param_file(param_file)
 		config.set_valid_places(valid_places)
 		predictor = lite.CreatePaddlePredictor(config)
 		return predictor
@@ -54,27 +58,21 @@ class cxx_model():
 		result = out.data()
 		return result
 
-class pm_model():
-	def __init__(self, model_flie, param_file, data_shape, thread_num=1):
-		'''
-		加载模型 初始化输入张量
-		参数：模型文件、模型参数文件、数据形状、线程数
-		返回：无
-		'''
-		self.predictor = self.load_model(model_flie, param_file, thread_num)
-		self.tensor = self.data_feed(data_shape)
-
-	def load_model(self, model_flie, param_file, thread_num=1):
+class pm_model(base_model):
+	def load_model(self, model_flie, param_file, thread_num, model_dir):
 		'''
 		加载PaddleMobile模型
-		参数：模型文件、模型参数文件、线程数
+		参数：模型文件、模型参数文件、线程数、模型目录
 		返回：模型预测器
 		'''
 		pm_config = pm.PaddleMobileConfig()
 		pm_config.precision = pm.PaddleMobileConfig.Precision.FP32######ok
 		pm_config.device = pm.PaddleMobileConfig.Device.kFPGA######ok
-		pm_config.prog_file = model_flie
-		pm_config.param_file = param_file
+		if model_dir:
+			pm_config.model_dir = model_dir
+		else:
+			pm_config.prog_file = model_flie
+			pm_config.param_file = param_file
 		pm_config.thread_num = thread_num    
 		predictor = pm.CreatePaddlePredictor(pm_config)
 		return predictor

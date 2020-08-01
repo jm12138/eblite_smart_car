@@ -18,7 +18,7 @@ if __name__ == "__main__":
     car = car_devices()
 
     # 加载模型
-    ssd_lite = pm_model('./ssd_lite/model', './ssd_lite/params', (1, 3, 128, 128))
+    ssd_lite = pm_model(data_shape=(1, 3, 128, 128), model_flie='./ssd_lite/model', param_file='./ssd_lite/params')
 
     # 加载标签列表
     label_list = load_label_list('./ssd_lite/label_list.txt')

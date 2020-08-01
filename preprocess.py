@@ -31,14 +31,17 @@ def preprocess_car_line(img, img_shape):
 	参数：未处理的图像
 	返回：预处理后的图像
 	'''
+	img = img[:,52:-52,:]
 	lower_hsv = np.array([20, 75, 165])
 	upper_hsv = np.array([40, 255, 255])
 	hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 	mask = cv2.inRange(hsv, lowerb=lower_hsv, upperb=upper_hsv)
-	img = Image.fromarray(mask)
+	img = cv2.imwrite('test.jpg', mask)
+	img = Image.open('test.jpg')
 	img = img.resize(img_shape, Image.ANTIALIAS)
 	img = np.array(img).astype(np.float32)
 	img = img / 255.0
 	img = np.expand_dims(img, 0)
 	img = np.expand_dims(img, 0)
+	print(img)
 	return img

@@ -29,7 +29,7 @@ def get_angle(reslut):
 
 def draw_bbox(results, frame, label_list, draw_threshold, frame_shape):  
 	'''
-	预测结果后处理和绘制检测模型的预测框
+	绘制检测模型的预测框
 	参数：模型预测结果、模型输入的预测图像、标签对应列表、绘制阈值、图像形状
 	返回：预测框绘制完成的图像、预测类别结果列表（模型输入的预测图像存在时）或只返回预测类别结果列表
 	'''

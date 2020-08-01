@@ -23,7 +23,7 @@ class car_devices():
 	def video_cap(self, video_device, video_w, video_h, buffer_size):
 		'''
 		启动摄像头录像
-		参数：设备路径、摄像头图像宽度、摄像头图像高度、视频流缓冲值
+		参数：设备路径
 		返回：视频流
 		'''
 		video = v4l2capture.Video_device(video_device)
@@ -45,7 +45,7 @@ class car_devices():
 	def load_lib(self, lib_path, ttyUSB):
 		'''
 		加载底盘驱动程序
-		参数：lib路径、ttyUSB设备
+		参数：lib路径
 		返回：lib调用端口
 		'''
 		lib = cdll.LoadLibrary(lib_path)

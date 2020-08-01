@@ -20,8 +20,8 @@ if __name__ == "__main__":
     car = car_devices()
 
     # 加载模型
-    ssd_lite = pm_model('./ssd_lite/model', './ssd_lite/params', (1, 3, 128, 128))
-    car_line = pm_model('./car_line/model', './car_line/params', (1, 1, 128, 128))
+    ssd_lite = pm_model(data_shape=(1, 3, 128, 128), model_flie='./ssd_lite/model', param_file='./ssd_lite/params')
+    car_line = pm_model(data_shape=(1, 1, 128, 128), model_flie='./car_line/model', param_file='./car_line/params')
 
     # 加载标签列表
     label_list = load_label_list('./ssd_lite/label_list.txt')
@@ -29,9 +29,6 @@ if __name__ == "__main__":
     # 初始化视频写入器
     fourcc = cv2.VideoWriter_fourcc('M','J','P','G')
     videoWriter = cv2.VideoWriter('video.avi', fourcc, 25, (160, 120))
-    
-    # 等待启动指令
-    car.wait2start()
     
     # 启动前预热
     for _ in range(30):
@@ -57,7 +54,8 @@ if __name__ == "__main__":
         result_car_line = car_line.predict(img)
         
         # 预测结果后处理
-        angle = get_angle(result_car_line)
+        #angle = get_angle(result_car_line)
+        angle = 1500
         frame, results_list = draw_bbox(result_det, frame, label_list, draw_threshold=0.7, frame_shape=None)
 
         # 前方检测到限速标志的操作
@@ -77,9 +75,9 @@ if __name__ == "__main__":
         # 设定速度
         speed = base_speed
 
-        # 前方检测到人行横道的操作
-        if 'Cross' in results_list:
-            if results_list['Cross'][1] > 40:
+        # 前方检测到红灯的操作
+        if 'red' in results_list:
+            if results_list['red'][1] > 40:
                 if Cross_Flag==0:
                     wait_start = time.time()
                     Cross_Flag = 1
