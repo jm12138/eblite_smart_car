@@ -54,8 +54,7 @@ if __name__ == "__main__":
         result_car_line = car_line.predict(img)
         
         # 预测结果后处理
-        #angle = get_angle(result_car_line)
-        angle = 1500
+        angle = get_angle(result_car_line)
         frame, results_list = draw_bbox(result_det, frame, label_list, draw_threshold=0.7, frame_shape=None)
 
         # 前方检测到限速标志的操作
