@@ -16,6 +16,11 @@ auto_driver(_video).py -- 自动行车程序(行车视频)
 auto_tracking(_video).py -- 原地追踪程序(行车视频)
 
 data_collection.py -- 遥控数据采集程序(Demo版)
+## 模型（车道线模型效果不好，仅供测试）
+ssd_lite -- 检测模型（ssd_lite）
+
+car_line -- 车道线模型
+
 # API
 所有API均在代码中有详细的使用注释，方便调用和二次修改使用
 
