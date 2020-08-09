@@ -49,6 +49,9 @@ if __name__ == "__main__":
         # 预测结果后处理
         angle = get_angle(result_car_line)
         results_list = draw_bbox(result_det, frame=None, label_list=label_list, draw_threshold=0.7, frame_shape=[120, 160])
+	
+	# 若仅测试检测模型时，请将angle设置为1500，保持直行
+	# angle = 1500
         
         # 前方检测到限速标志的操作
         if 'limit_10' in results_list:
