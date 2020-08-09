@@ -34,7 +34,8 @@ from preprocess import preprocess_det
 # 初始化小车设备
 # 可降低摄像头图像分辨率来提升运行帧率
 # 可提高摄像头缓冲区大小来提升运行帧率
-# 调节缓冲区大小时请注意会导致摄像头前buffer_size张图片出现异常，所以最好先进行预热操作，将这些异常图片推出队列
+# 调节缓冲区大小时请注意，可能会导致摄像头前buffer_size张图片出现异常，所以最好先进行预热操作，将这些异常图片推出队列
+# Baseline设置为car_devices(video_w=320, video_h=240, buffer_size=1)
 car = car_devices(video_w=160, video_h=120, buffer_size=20)
 
 # 加载模型
