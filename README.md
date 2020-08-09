@@ -56,6 +56,19 @@ result = ssd_lite.predict(img)
 # 打印结果
 print(result)
 ```
+# Demo使用
+```shell
+# 运行前请先阅读一下程序的代码
+
+# 数据采集
+python data_collection.py
+
+# 自动行车
+python auto_driver.py
+
+# 原地追踪
+python auto_driver.py
+```
 # 如何部署自己的模型
 1. 使用paddlepaddle训练自己的模型
 
