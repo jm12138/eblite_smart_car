@@ -26,6 +26,7 @@ car_line -- 车道线模型
 
 # 快速使用
 ```python
+# python
 # 导入需要的包
 from model import pm_model
 from devices import car_devices
@@ -58,6 +59,7 @@ print(result)
 ```
 # Demo使用
 ```shell
+# shell
 # 运行前请先阅读一下程序的代码
 
 # 数据采集
