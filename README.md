@@ -40,7 +40,7 @@ car_line -- 车道线模型
 
 # 使用提示
 * 使用前请先将本项目代码clone或者下载Zip到本地，解压并将代码拷贝到智能车EdgeBoard中
-* 使用自己训练的SSD_lite模型的话，请将其拷贝至ssd_lite文件夹中，重命名成model/params替换原有模型，或者修改代码中加载模型的代码
+* 使用自己训练的SSD_lite模型的话，请将其拷贝至./ssd_lite文件夹中，重命名成model/params替换原有模型，或者修改代码中加载模型的代码
 
 # 快速使用
 ```python
