@@ -8,7 +8,7 @@ class base_model():
 	def __init__(self, data_shape, thread_num=1, model_dir=None, model_flie=None, param_file=None):
 		'''
 		加载模型 初始化输入张量
-		参数：模型文件、模型参数文件、数据形状、线程数、模型目录
+		参数：数据形状、线程数（Cxx_model设置无效）、（模型目录）或（模型文件、模型参数文件）
 		返回：无
 		'''
 		self.predictor = self.load_model(model_flie, param_file, thread_num, model_dir)
