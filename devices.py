@@ -54,7 +54,7 @@ class car_devices():
 
 	def wait2start(self):
 		'''
-		等待启动指令
+		等待启动指令（通过单击手柄左侧的向上按键启动）
 		参数：无
 		返回：无
 		'''
