@@ -2,6 +2,15 @@ import numpy as np
 import paddlemobile as pm
 import paddlelite as lite
 
+'''
+API 快速指南
+model = pm_model(model_dir=model_dir) -- PaddleMobile加载模型参数非合并模型
+model = pm_model(model_flie=model_flie, param_file=param_file) -- PaddleMobile加载模型参数合并模型
+model = cxx_model(model_dir=model_dir) -- PaddleLite加载模型参数非合并模型
+model = cxx_model(model_flie=model_flie, param_file=param_file) -- PaddleLite加载模型参数合并模型
+model.predict(inputs_data) -- 模型预测
+'''
+
 __all__ = ['cxx_model', 'pm_model']
 
 class base_model():
