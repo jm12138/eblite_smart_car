@@ -38,9 +38,13 @@ car_line -- 车道线模型
 
 所有API均在代码中有详细的使用注释，方便调用和二次修改使用
 
+# 使用提示
+使用前请先将本项目代码clone或者下载Zip到本地，解压并将代码拷贝到智能车EdgeBoard中
+使用自己训练的SSD_lite模型的话，请将其拷贝至ssd_lite文件夹中，重命名成model/params替换原有模型，或者修改代码中加载模型的代码
+
 # 快速使用
 ```python
-# python
+# python命令行快速使用
 # 导入需要的包
 from model import pm_model
 from devices import car_devices
@@ -90,7 +94,9 @@ python auto_driver.py
 
 2. 导出推理模型
 
-3. 使用model模块中pm_model或cxx_model这两个api加载模型
+3. 拷贝推理模型到智能车Edgeboard上
+
+3. 使用model模块中pm_model或cxx_model这两个api加载刚刚拷贝的模型
 
 4. 根据自己的模型写好数据的预处理代码
 
