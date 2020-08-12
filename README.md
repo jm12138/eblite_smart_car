@@ -40,7 +40,7 @@ car_line -- 车道线模型
 
 # 使用提示
 * 使用前请先将本项目代码clone或者下载Zip到本地，解压并将代码拷贝到智能车EdgeBoard中
-* 若使用自己训练的[SSD_lite模型](https://aistudio.baidu.com/aistudio/projectdetail/701345)，请将其拷贝至./ssd_lite文件夹中，重命名成model/params替换原有模型，或者修改代码中加载模型的代码
+* 若使用自己训练的[SSD_lite模型](https://aistudio.baidu.com/aistudio/projectdetail/701345)，请将推理模型和label_list拷贝至./ssd_lite文件夹中，重命名成model/params/label_list.txt替换原有模型，或者修改代码中加载模型的代码
 * 请注意使用的模型的输入分辨率，本项目预置的模型输入分辨率为128\*128，故摄像头默认使用160\*120分辨率采集图像
 * 若使用自己训练的[SSD_lite模型](https://aistudio.baidu.com/aistudio/projectdetail/701345)且输入分辨率不为默认的128\*128，比如输入的分辨率为320\*320（AIstudio项目默认设置），请在代码中做如下修改：
 ```python
