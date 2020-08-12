@@ -40,7 +40,19 @@ car_line -- 车道线模型
 
 # 使用提示
 * 使用前请先将本项目代码clone或者下载Zip到本地，解压并将代码拷贝到智能车EdgeBoard中
-* 使用自己训练的SSD_lite模型的话，请将其拷贝至./ssd_lite文件夹中，重命名成model/params替换原有模型，或者修改代码中加载模型的代码
+* 若使用自己训练的SSD_lite模型，请将其拷贝至./ssd_lite文件夹中，重命名成model/params替换原有模型，或者修改代码中加载模型的代码
+* 请注意使用的模型的输入分辨率，本项目预置的模型输入分辨率为128\*128，故摄像头默认使用160\*120分辨率采集图像
+* 若使用自己训练的SSD_lite模型且输入分辨率不为默认的128\*128，比如输入的分辨率为320\*320，请在代码中做如下修改：
+```python
+- car = car_devices(video_w=160, video_h=120, buffer_size=20)
++ car = car_devices(video_w=320, video_h=240, buffer_size=20)
+
+- ssd_lite = pm_model(data_shape=(1, 3, 128, 128), model_flie='./ssd_lite/model', param_file='./ssd_lite/params')
++ ssd_lite = pm_model(data_shape=(1, 3, 320, 320), model_flie='./ssd_lite/model', param_file='./ssd_lite/params')
+
+- img = preprocess_det(frame, (128, 128))
++ img = preprocess_det(frame, (320, 320))
+```
 
 # 快速使用
 ```python
