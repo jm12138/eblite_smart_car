@@ -3,6 +3,15 @@ import numpy as np
 
 from ctypes import cdll
 
+'''
+API 快速使用指南
+car = car_devices(video_w=160, video_h=120, buffer_size=20) -- 初始化车辆设备
+car.fn -- 手柄数据流
+car.lib.send(speed, angle) -- 发送底盘操作指令
+car.read_frame() -- 读取摄像头的当前帧
+car.wait2start() -- 等待手柄发送启动指令
+'''
+
 __all__ = ['car_devices']
 
 class car_devices():
