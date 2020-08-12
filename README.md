@@ -23,10 +23,10 @@ car_line -- 车道线模型
 
 # API
 ## model
-* model = pm_model(model_dir=model_dir) -- PaddleMobile加载模型参数非合并模型
-* model = pm_model(model_flie=model_flie, param_file=param_file) -- PaddleMobile加载模型参数合并模型
-* model = cxx_model(model_dir=model_dir) --CxxCongig加载模型参数非合并模型
-* model = cxx_model(model_flie=model_flie, param_file=param_file) -- CxxCongig加载模型参数合并模型
+* model = pm_model(data_shape, model_dir=model_dir) -- PaddleMobile加载模型参数非合并模型
+* model = pm_model(data_shape, model_flie=model_flie, param_file=param_file) -- PaddleMobile加载模型参数合并模型
+* model = cxx_model(data_shape, model_dir=model_dir) --CxxCongig加载模型参数非合并模型
+* model = cxx_model(data_shape, model_flie=model_flie, param_file=param_file) -- CxxCongig加载模型参数合并模型
 * model.predict(inputs_data) -- 模型预测
 
 ## devices
