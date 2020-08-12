@@ -81,3 +81,5 @@ python auto_driver.py
 4. 根据自己的模型写好数据的预处理代码
 
 5. 调用model类的predict函数进行预测
+
+6. 编写预测后的后续操作
