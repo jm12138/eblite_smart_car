@@ -22,6 +22,20 @@ ssd_lite -- 检测模型（ssd_lite）
 car_line -- 车道线模型
 
 # API
+## model
+* model = pm_model(model_dir=model_dir) -- PaddleMobile加载模型参数非合并模型
+* model = pm_model(model_flie=model_flie, param_file=param_file) -- PaddleMobile加载模型参数合并模型
+* model = cxx_model(model_dir=model_dir) --CxxCongig加载模型参数非合并模型
+* model = cxx_model(model_flie=model_flie, param_file=param_file) -- CxxCongig加载模型参数合并模型
+* model.predict(inputs_data) -- 模型预测
+
+## devices
+* car = car_devices(video_w=160, video_h=120, buffer_size=20) -- 初始化车辆设备
+* car.fn -- 手柄数据流
+* car.lib.send(speed, angle) -- 发送底盘操作指令
+* car.read_frame() -- 读取摄像头的当前帧
+* car.wait2start() -- 等待手柄发送启动指令
+
 所有API均在代码中有详细的使用注释，方便调用和二次修改使用
 
 # 快速使用
