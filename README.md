@@ -10,7 +10,7 @@ devices.py -- 智能车设备（基本无需修改）
 tool.py -- 一些工具（请根据需求自行修改）
 
 preprocess.py -- 数据预处理（请根据模型自行修改）
-## Demo
+## Demo（仅供参考）
 auto_driver(_video).py -- 自动行车程序(行车视频)
 
 auto_tracking(_video).py -- 原地追踪程序(行车视频)
